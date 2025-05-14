@@ -1,5 +1,5 @@
 {
-  "name": "umzug-db-migrate",
+  "name": "umzug-db-migrate-with-better-sqlite3",
   "version": "1.0.0",
   "description": "",
   "license": "ISC",
