@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // migration 資料夾路徑
-const MIGRATIONS_DIR = path.resolve(__dirname, '../migrations');
+const MIGRATIONS_DIR = path.resolve(__dirname, '..', '..','migrations');
 
 // 取得 CLI 參數
 const name = process.argv[2];

@@ -9,8 +9,8 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch",
-    "migrate": "node dist/src/migrate.js",
-    "create-migration": "tsx scripts/create-migration.ts"
+    "create-migration": "tsx dist/scripts/create-migration.js",
+    "migrate": "tsx dist/scripts/migrate.js"
   },
   "dependencies": {
     "better-sqlite3": "^11.10.0",
