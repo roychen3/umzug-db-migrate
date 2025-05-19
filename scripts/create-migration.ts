@@ -37,11 +37,19 @@ const filepath = path.join(MIGRATIONS_DIR, filename);
 const template = `import { Database } from 'better-sqlite3';
 
 export async function up(db: Database) {
-  // TODO: 實作 migration 邏輯
+  // migration always run in a transaction
+  const run = db.transaction(() => {
+    // TODO: 實作 migration 邏輯
+  });
+  run();
 }
 
 export async function down(db: Database) {
-  // TODO: 實作 rollback 邏輯
+  const run = db.transaction(() => {
+    // migration always run in a transaction
+    // TODO: 實作 rollback 邏輯
+  });
+  run();
 }
 `;
 

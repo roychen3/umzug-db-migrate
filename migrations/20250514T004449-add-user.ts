@@ -1,16 +1,24 @@
 import { Database } from 'better-sqlite3';
 
 export async function up(db: Database) {
-  db.prepare(
+  const createTable = db.transaction(() => {
+    db.exec(
+      `
+      CREATE TABLE IF NOT EXISTS users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL
+      )
     `
-    CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      name TEXT NOT NULL
-    )
-  `
-  ).run();
+    );
+  });
+
+  createTable();
 }
 
 export async function down(db: Database) {
-  db.prepare(`DROP TABLE IF EXISTS users`).run();
+  const dropTable = db.transaction(() => {
+    db.prepare(`DROP TABLE IF EXISTS users`).run();
+  });
+
+  dropTable();
 }
